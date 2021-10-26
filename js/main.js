@@ -152,7 +152,7 @@ getElement("#btnBai7").onclick = sapXep;
 
 
 /**
- * Bài 8: In số nguyên tố trong mảng
+ * Bài 8: In số nguyên tố đầu tiên trong mảng
  * 
  */
 // Hàm xác định số nguyên tố
@@ -185,7 +185,7 @@ function printPrime() {
     var prime;
     for (var i = 0; i < arrNum.length; i++){
         if (isPrime(arrNum[i])){
-            prime += arrNum[i] + "";
+            prime = arrNum[i];
             break;
         }
         else{
@@ -197,3 +197,54 @@ function printPrime() {
     getElement("#txtBai8").innerHTML = prime;
 }
 getElement("#btnBai8").onclick = printPrime;
+
+/**
+ * Bài 9: Đếm số nguyên trong mảng
+ */
+// hàm nhập mảng số thực
+var arrInteger = []
+
+function addInteger(){
+    var num = Number(getElement("#addNumberInterger").value);
+    arrInteger.push(num);
+    getElement("#txtAddInteger").innerHTML = arrInteger;
+}
+getElement("#btnAddInteger").onclick = addInteger;
+
+//hàm đếm mảng số nguyên
+
+function countInteger(){
+    var count = 0;
+    for( var i = 0 ; i < arrInteger.length; i++)
+    if(Number.isInteger(arrInteger[i])){
+        count++;
+    }
+    getElement("#txtBai9").innerHTML = "Số số nguyên trong mảng là : "+ count;
+}
+getElement("#btnCountInteger").onclick = countInteger;
+
+
+/**
+ * Bài 10: So Sánh số lượng số dương âm trong mảng
+ */
+
+function soSanh(){
+    var positive = 0;
+    var negative = 0;
+    for( var i = 0 ; i<arrNum.length ; i++){
+        if (arrNum[i]>0){
+            positive++;
+        }else{
+            negative++;
+        }
+    }
+    if (positive>negative){
+        getElement("#txtBai10").innerHTML = "Số dương > Số âm";
+    }else if (positive<negative){
+        getElement("#txtBai10").innerHTML = "Số âm > Số dương";
+    }else if (positive == negative ){
+        getElement("#txtBai10").innerHTML = "Số dương = Số âm";
+    }
+}
+
+getElement("#btnBai10").onclick = soSanh;
